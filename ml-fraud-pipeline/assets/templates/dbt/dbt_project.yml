@@ -1,0 +1,28 @@
+name: __PROYECTO_SNAKE__
+version: "1.0.0"
+config-version: 2
+profile: __PROYECTO_SNAKE__
+
+model-paths: ["models"]
+macro-paths: ["macros"]
+test-paths: ["tests"]
+target-path: "target"
+clean-targets: ["target", "dbt_packages", "logs"]
+
+# Parámetros FIJOS de las features. Salen del EDA y son constantes: dbt no calcula nada a partir de estadísticas
+# del dataset completo (medianas, cuantiles, frecuencias, la etiqueta): eso sería fuga hacia test.
+vars:
+  tasa_objetivo_min: 0.01      # guardia de volumen/deriva (solo avisa); ajustar a la prevalencia esperada
+  tasa_objetivo_max: 0.50
+  # TODO: lista de categorías que se conservan, topes de discretas, etc. (decisiones del EDA)
+  # categorias_modelo: ["A", "B"]
+  # tope_x: 4
+
+models:
+  __PROYECTO_SNAKE__:
+    staging:
+      +materialized: view
+    intermediate:
+      +materialized: view
+    marts:
+      +materialized: table

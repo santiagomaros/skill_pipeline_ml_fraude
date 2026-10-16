@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: raw
+    description: Datos crudos (CSV de entrada; no se versiona).
+    meta:
+      # Solo dbt-duckdb (desarrollo local): lee el CSV como texto; el tipado se hace en stg_datos.
+      # En producción esta fuente sería una tabla del catálogo (Glue/Athena, BigQuery...) y esta clave se ignora.
+      external_location: "read_csv('{{ env_var('DATOS_CSV_PATH', '../datos.csv') }}', header=true, all_varchar=true)"
+    tables:
+      - name: datos
+        description: Una fila por operación.

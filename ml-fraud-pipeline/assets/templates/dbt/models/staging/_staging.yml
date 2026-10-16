@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: stg_datos
+    description: Datos crudos tipados y limpios. Una fila por operación.
+    columns:
+      - name: row_id
+        data_tests: [unique, not_null]
+      # TODO: objetivo en {0, 1}, columnas obligatorias no nulas, valores permitidos.
+      # - name: objetivo
+      #   data_tests:
+      #     - not_null
+      #     - accepted_values:
+      #         arguments: {values: [0, 1], quote: false}

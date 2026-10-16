@@ -1,0 +1,33 @@
+# Datos de entrada (confidenciales o pesados): no se versionan
+*.csv
+data/
+datos/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.ipynb_checkpoints/
+
+# Terraform (el .terraform.lock.hcl SÍ se versiona)
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+
+# dbt y DuckDB local
+dbt/target/
+dbt/dbt_packages/
+dbt/logs/
+dbt/.user.yml
+*.duckdb
+*.duckdb.wal
+
+# Artefactos del modelo y datos intermedios
+ml/*/artefactos/
+*.parquet
+*.pkl
+*.joblib
+
+# Sistema
+.DS_Store

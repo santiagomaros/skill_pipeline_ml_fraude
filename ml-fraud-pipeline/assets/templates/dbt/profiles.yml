@@ -1,0 +1,20 @@
+# Perfiles de dbt. Se usa con:  dbt <comando> --profiles-dir .   (desde la carpeta dbt/)
+# No hay credenciales en este archivo.
+__PROYECTO_SNAKE__:
+  target: dev
+  outputs:
+    # Desarrollo local: DuckDB lee el CSV directamente (ver models/sources.yml).
+    dev:
+      type: duckdb
+      path: "{{ env_var('DBT_DUCKDB_PATH', 'target/fraude.duckdb') }}"
+      threads: 1
+
+    # Producción (referencia, no se ejecuta en esta prueba). El SQL de los modelos es el mismo;
+    # solo cambia el adaptador y el origen de la fuente (tabla del catálogo Glue en lugar del CSV).
+    # prod:
+    #   type: athena            # pip install dbt-athena-community
+    #   s3_staging_dir: s3://<bucket>/dbt-athena/
+    #   region_name: us-east-1
+    #   database: awsdatacatalog
+    #   schema: fraude_features
+    #   threads: 4

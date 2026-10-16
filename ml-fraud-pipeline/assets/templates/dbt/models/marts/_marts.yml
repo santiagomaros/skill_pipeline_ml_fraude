@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: mart_features
+    description: Features sin estado, una fila por operación.
+    columns:
+      - name: row_id
+        data_tests: [unique, not_null]
+      # TODO: accepted_values de las agrupaciones y topes (son el contrato con el processor).
+
+# TODO: al menos una prueba unitaria sobre filas construidas a mano (topes, categorías, agrupación, log1p):
+# unit_tests:
+#   - name: agrupaciones_y_logs
+#     model: mart_features
+#     given:
+#       - input: ref('int_senales')
+#         rows: [{row_id: 1, x: 9}]
+#     expect:
+#       rows: [{row_id: 1, x_cap: 4}]

@@ -1,0 +1,14 @@
+# Dependencias (fijar las versiones con las que se desarrolló: ejecutar `pip freeze` y copiar aquí las de estas librerías).
+# XGBoost y LightGBM en macOS requieren OpenMP:  brew install libomp
+numpy
+pandas
+scipy
+scikit-learn
+matplotlib
+seaborn
+xgboost
+lightgbm
+duckdb
+dbt-core
+dbt-duckdb
+ipykernel

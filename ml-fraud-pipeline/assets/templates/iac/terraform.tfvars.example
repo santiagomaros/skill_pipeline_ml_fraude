@@ -1,0 +1,11 @@
+# Copia este archivo a terraform.tfvars (no se versiona) y ajusta los valores.
+project     = "__PROYECTO__"
+environment = "dev"
+region      = "us-east-1"
+owner       = "equipo-ml"
+
+# Opcionales: cuestan dinero mientras existan.
+crear_endpoint    = false
+crear_ec2_airflow = false
+# subnet_id             = "subnet-0123456789abcdef0"   # obligatoria si crear_ec2_airflow = true
+# cidr_acceso_airflow   = ["10.0.0.0/16"]
